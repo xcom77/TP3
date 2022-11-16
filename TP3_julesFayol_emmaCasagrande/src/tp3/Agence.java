@@ -17,7 +17,7 @@ public class Agence {
     private Vehicule[] flotteVehicule;
     private Client[] repertoryClient;
     private Location[] agandaLocation;
-    
+    private int sam;
     
     public Agence(String nomAgance,Vehicule[] flotteVehicule,Client[] repertoryClient, Location[] agandaLocation){
       this.nomAgance=nomAgance;
@@ -91,6 +91,6 @@ public class Agence {
              }
        }
         
-       return repertoryClient;
+
     }
 }
