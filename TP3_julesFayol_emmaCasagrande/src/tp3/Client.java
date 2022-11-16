@@ -11,16 +11,25 @@ import java.time.LocalDate;
  * @author jules
  */
 public class Client {
-    
+
     String emailclient;
-    LocalDate permisdate; 
+    LocalDate permisdate;
     LocalDate agedate;
-    
-    public Client(String emailclient, LocalDate permisdate, LocalDate agedate){
-     this.emailclient=emailclient;
-     this.permisdate=permisdate;
-     this.agedate = agedate;
-     
-     //hello
+
+
+    public Client(String emailclient, LocalDate permisdate, LocalDate agedate) {
+        this.emailclient = emailclient;
+        this.permisdate = permisdate;
+        this.agedate = agedate;
     }
+
+    public boolean placerApres(String email) { 
+        String client = this.emailclient;
+        int compare = email.compareToIgnoreCase(client);
+        if(compare > 0){
+            return true;
+        }
+        return false;
+    }
+
 }
