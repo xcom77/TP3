@@ -32,7 +32,7 @@ public class Vehicule {
 
     }
 
-    
+//    
    public boolean placerApres(int genrevoiture) { 
         int genre = this.genre;
         int compare = genre - genrevoiture; 

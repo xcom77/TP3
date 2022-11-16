@@ -8,6 +8,8 @@ package tp3;
  *
  * @author jules
  */
+import java.io.*;
+
 public class main {
 
     /**
@@ -15,11 +17,14 @@ public class main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int nbplace = 5, nbporte= 4, agemin=19, permismin =2, chargecap=500;
-        String gamme = "A", identifiant ="AX", modele = "renault kengou", genre = "vehiculeAvecMoteur";
-        VehiculeAvecMoteurUtilitaire cars = new VehiculeAvecMoteurUtilitaire(gamme,identifiant, genre,nbplace, nbporte, agemin,  permismin, modele, chargecap);
-        
-        System.out.println( cars.getroue());
+        String nomAgance = "lest";
+        Vehicule[] flotteVehicule = new Vehicule[0];
+        Client[] repertoryClient = new Client[0];
+        Location[] agandaLocation = new Location[0];
+        Agence test = new Agence(nomAgance, flotteVehicule,repertoryClient,agandaLocation);
+        repertoryClient = test.ajouter(repertoryClient);
+        System.out.print(repertoryClient[0].emailclient);
+       
         
     }
     

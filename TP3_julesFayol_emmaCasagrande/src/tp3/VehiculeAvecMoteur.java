@@ -14,7 +14,7 @@ public class VehiculeAvecMoteur extends Vehicule {
     
     
     
-    public VehiculeAvecMoteur(String gamme, String identifiant, String genre, int nbplace, int nbporte, int agemin, int permismin, String modele){
+    public VehiculeAvecMoteur(String gamme, String identifiant, int genre, int nbplace, int nbporte, int agemin, int permismin, String modele){
         super(gamme, identifiant, genre, nbplace);
         this.modele=modele;
   

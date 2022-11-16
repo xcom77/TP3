@@ -27,6 +27,10 @@ public class Agence {
     }
 
     public Client[] ajouter(Client[] repertoryClient) {
+        LocalDate permisdate;
+        String emailClient;
+        LocalDate birthdate;
+        
         System.out.println("voulez vous ajouter un client ? oui/non");
         Scanner cs1 = new Scanner(System.in);
         boolean information = true;
@@ -44,11 +48,11 @@ public class Agence {
         Scanner cs2 = new Scanner(System.in);
         Scanner cs3 = new Scanner(System.in);
         Scanner cs4 = new Scanner(System.in);
-
+       
         while (true) {
             System.out.println("entrez votre email :");
 
-            String emailClient = cs2.nextLine();
+            emailClient = cs2.nextLine();
 
             System.out.println("date d'obtention du permis :");
             System.out.println("entrez le jour jj/");
@@ -58,7 +62,7 @@ public class Agence {
             System.out.println("entrez le jour aaaa/");
             int AP = cs4.nextInt();
 
-            LocalDate permisdate = LocalDate.of(AP, MP, JP);
+            permisdate = LocalDate.of(AP, MP, JP);
 
             System.out.println(" ");
             System.out.println("date de naissance :");
@@ -66,10 +70,10 @@ public class Agence {
             int JN = cs2.nextInt();
             System.out.println("entrez le mois mm/");
             int MN = cs3.nextInt();
-            System.out.println("entrez le jour aaaa/");
+            System.out.println("entrez le annee aaaa/");
             int AN = cs4.nextInt();
 
-            LocalDate birthdate = LocalDate.of(JN, MN, AN);
+            birthdate = LocalDate.of(AN, MN, JN);
 
             System.out.println("");
             System.out.println("verification des information :");
@@ -81,17 +85,29 @@ public class Agence {
                 System.out.println("confirmer vous les informations? oui/non");
                 String choice = cs2.nextLine();
                 if (choice.equals("oui")) {
-                    information = false;
+                    information=false;
                     break;
                 }
                 if (choice.equals("non")) {
                     break;
                 }
             }
+         break;
         }
+        
+        Client client = new Client (emailClient, permisdate, birthdate);
+        
+        int tab_length_0;
+        tab_length_0 = repertoryClient.length;
+        Client[] tabtemp = new Client[tab_length_0 + 1]; // creation d'une liste de taille n+1
+        for (int i = 0; i < tab_length_0; i++) {
+            tabtemp[i] = repertoryClient[i]; // transfert des valeurs vers le nouveau tableau
+        }
+        tabtemp[tab_length_0] = client; // ajoue de la nouvelle valeur dans la tab n+1 du tableau 
 
-        //on doit le mettre en string puis convertir en int
+        return tabtemp;
     }
+    
 
     public Location[] ajouter(Location[] agandaLocation) {
 
@@ -125,6 +141,7 @@ public class Agence {
         LocalDate locationDate = LocalDate.of(jour, mois, an);
 
         //not finished 
+        return agandaLocation;
     }
 
     public Vehicule[] ajouter(Vehicule[] flotteVehicule) {
@@ -250,6 +267,7 @@ public class Agence {
             int nbPort = sc6.nextInt();
         }
 
-    }
-
+    // a finir 
+    return flotteVehicule;
+}
 }

@@ -12,7 +12,7 @@ public class VehiculeSansMoteur extends Vehicule {
     private int Nbroue;
     
     
-    public VehiculeSansMoteur(String gamme, String identifiant, String genre, int nbplace, int Nbroue){
+    public VehiculeSansMoteur(String gamme, String identifiant, int genre, int nbplace, int Nbroue){
         super(gamme,identifiant,genre,nbplace);
         this.Nbroue=Nbroue;
     }

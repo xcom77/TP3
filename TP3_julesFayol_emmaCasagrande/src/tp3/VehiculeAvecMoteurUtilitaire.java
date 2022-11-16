@@ -12,7 +12,7 @@ public class VehiculeAvecMoteurUtilitaire extends VehiculeAvecMoteur {
     
     private int chargecap;
     
-    public VehiculeAvecMoteurUtilitaire(String gamme, String identifiant, String genre, int nbplace, int nbporte, int agemin, int permismin, String modele, int chargecap){
+    public VehiculeAvecMoteurUtilitaire(String gamme, String identifiant, int genre, int nbplace, int nbporte, int agemin, int permismin, String modele, int chargecap){
         super(gamme, identifiant, genre, nbplace, nbporte, agemin, permismin, modele);
         this.chargecap=chargecap;
       
