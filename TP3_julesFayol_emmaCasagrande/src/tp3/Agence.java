@@ -104,21 +104,7 @@ public class Agence {
             tabtemp[i] = repertoryClient[i]; // transfert des valeurs vers le nouveau tableau
         }
         tabtemp[tab_length_0] = client; // ajoue de la nouvelle valeur dans la tab n+1 du tableau 
-        
-        tab_length_0 = repertoryClient.length;
-        if  (tab_length_0 >2){
-            
-        Client tempclient;
-        for (int i=0; i<tab_length_0; i++){
-             for (int b=i+1; b<tab_length_0; b++){
-                 if (repertoryClient[i].placerApres(repertoryClient[b].emailclient)){
-                     tempclient=repertoryClient[i];
-                     repertoryClient[i]=repertoryClient[b];
-                     repertoryClient[b]=tempclient;
-                 }
-             }
-        }
-        }
+
         return tabtemp;
     }
     
