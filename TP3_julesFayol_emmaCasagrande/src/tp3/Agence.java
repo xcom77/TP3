@@ -5,7 +5,7 @@
 package tp3;
 
 import java.util.Scanner;
-import java.time.*;  
+import java.time.*;
 
 /**
  *
@@ -17,80 +17,98 @@ public class Agence {
     private Vehicule[] flotteVehicule;
     private Client[] repertoryClient;
     private Location[] agandaLocation;
-    private int sam;
     
-    public Agence(String nomAgance,Vehicule[] flotteVehicule,Client[] repertoryClient, Location[] agandaLocation){
-      this.nomAgance=nomAgance;
-      this.flotteVehicule=flotteVehicule;
-      this.repertoryClient=repertoryClient;
-      this.agandaLocation=agandaLocation;
-        
+
+    public Agence(String nomAgance, Vehicule[] flotteVehicule, Client[] repertoryClient, Location[] agandaLocation) {
+        this.nomAgance = nomAgance;
+        this.flotteVehicule = flotteVehicule;
+        this.repertoryClient = repertoryClient;
+        this.agandaLocation = agandaLocation; 
     }
-    
+           
     public Client[] ajouter(Client[] repertoryClient){
+        String emailClient;
+        LocalDate birthdate;
+        LocalDate permisdate;
         System.out.println("voulez vous ajouter un client ? oui/non");
         Scanner cs1 = new Scanner(System.in);
         boolean information = true;
-       while(information){
-           String choice=cs1.nextLine();
-           if (choice.equals("oui")){
-               break;
-           }
-           if (choice.equals("non")){
-               System.out.println("aucun changement, 'non");
-               return repertoryClient;
-           }
-       }
-       
-       Scanner cs2 = new Scanner(System.in);
-       Scanner cs3 = new Scanner(System.in);
-       Scanner cs4 = new Scanner(System.in);
-       
-       while (true){
-        System.out.println("entrez votre email :");
+        while (information) {
+            String choice = cs1.nextLine();
+            if (choice.equals("oui")) {
+                break;
+            }
+            if (choice.equals("non")) {
+                System.out.println("aucun changement, 'non");
+
+            }
+        }
+
+        Scanner cs2 = new Scanner(System.in);
+        Scanner cs3 = new Scanner(System.in);
+        Scanner cs4 = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("entrez votre email :");
+
+            emailClient = cs2.nextLine();
+
+            System.out.println("date d'obtention du permis :");
+            System.out.println("entrez le jour jj/");
+            int JP = cs2.nextInt();
+            System.out.println("entrez le mois mm/");
+            int MP = cs3.nextInt();
+            System.out.println("entrez l annee aaaa/");
+            int AP = cs4.nextInt();
+
+            permisdate = LocalDate.of(AP, MP, JP);
+
+            System.out.println(" ");
+            System.out.println("date de naissance :");
+            System.out.println("entrez le jour jj/");
+            int JN = cs2.nextInt();
+            System.out.println("entrez le mois mm/");
+            int MN = cs3.nextInt();
+            System.out.println("entrez l annee aaaa/");
+            int AN = cs4.nextInt();
+
+            birthdate = LocalDate.of(AN, MN, JN);
+
+            System.out.println("");
+            System.out.println("verification des information :");
+            System.out.println("la date de naissance du client est le :" + birthdate);
+            System.out.println("la date du permis du client est le :" + permisdate);
+            System.out.println("l'email du client est:" + emailClient);
+
+            while (true) {
+                System.out.println("confirmer vous les informations? oui/non");
+                String choice = cs2.nextLine();
+                if (choice.equals("oui")) {
+                    information = false;
+                    break;
+                }
+                if (choice.equals("non")) {
+                    break;
+                }
+            }
+            break;
+        }
         
-        String emailClient = cs2.nextLine();
-        
-        System.out.println("date d'obtention du permis :");
-        System.out.println("entrez le jour jj/");
-        int JP = cs2.nextInt();
-        System.out.println("entrez le mois mm/");
-        int MP = cs3.nextInt();
-        System.out.println("entrez le jour aaaa/"); 
-        int AP = cs4.nextInt();
-        
-        LocalDate permisdate = LocalDate.of(AP,MP,JP);
-        
-        System.out.println(" ");
-        System.out.println("date de naissance :");
-        System.out.println("entrez le jour jj/");
-        int JN = cs2.nextInt();
-        System.out.println("entrez le mois mm/");
-        int MN = cs3.nextInt();
-        System.out.println("entrez le jour aaaa/"); 
-        int AN = cs4.nextInt();
-       
-        LocalDate birthdate = LocalDate.of(JN,MN,AN);
-        
-             System.out.println("");
-             System.out.println("verification des information :");
-             System.out.println( "la date de naissance du client est le :" + birthdate);
-             System.out.println( "la date du permis du client est le :" + permisdate);
-             System.out.println( "l'email du client est:" + emailClient);
-        
-             while (true){
-                 System.out.println( "confirmer vous les informations? oui/non");
-                 String choice=cs2.nextLine();
-                 if (choice.equals("oui")){
-                     information = false;
-                     break;
-                 }
-                 if (choice.equals("non")){
-                     break;
-                 }
-             }
-       }
-        
+       Client client = new Client(emailClient, permisdate, birthdate);
+       System.out.println(client.emailclient);
+      
+    
+        int tab_length_0;
+        tab_length_0 = repertoryClient.length;
+        Client[] tabtemp = new Client[tab_length_0 + 1]; // creation d'une liste de taille n+1
+        for (int i = 0; i < tab_length_0; i++) {
+            tabtemp[i] = repertoryClient[i]; // transfert des valeurs vers le nouveau tableau
+        }
+        tabtemp[tab_length_0] = client; // ajoue de la nouvelle valeur dans la tab n+1 du tableau 
+
+        return tabtemp;
+ 
 
     }
+//    
 }

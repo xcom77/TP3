@@ -4,10 +4,30 @@
  */
 package tp3;
 
+import java.time.LocalDate;
+import java.time.*;
 /**
  *
  * @author jules
  */
 public class Location {
+    Client client;
+    Vehicule vehicule;
+    LocalDate locationdate;
+    LocalDate returndate;
+    int price;
     
+    public Location(Client client, Vehicule vehicule, LocalDate locationdate, LocalDate returndate, int price){
+        this.price=price;
+        this.vehicule=vehicule;
+        this.locationdate=locationdate;
+        this.returndate=returndate;
+        this.price=price;
+    }
+    
+    public boolean placeApres(LocalDate client2){
+        LocalDate client1 = this.locationdate;
+        boolean retour = client2.isAfter(client1);
+        return retour;
+     }
 }
