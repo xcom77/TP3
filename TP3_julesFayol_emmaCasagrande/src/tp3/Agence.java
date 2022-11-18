@@ -128,11 +128,10 @@ public class Agence {
     public void ajouter(String gamme, String identifiant, int genre, int nbplace, int Nbroue){
         
         VehiculeSansMoteur vehicule = new VehiculeSansMoteur( gamme,  identifiant,  genre,  nbplace,  Nbroue);
-        
-        
+
         int tab_length_0;
         tab_length_0 = flotteVehicule.length;
-        VehiculeSansMoteur[] tabtemp = new VehiculeSansMoteur[tab_length_0 + 1]; // creation d'une liste de taille n+1
+        Vehicule[] tabtemp = new VehiculeSansMoteur[tab_length_0 + 1]; // creation d'une liste de taille n+1
         for (int i = 0; i < tab_length_0; i++) {
             tabtemp[i] = flotteVehicule[i]; // transfert des valeurs vers le nouveau tableau
         }
