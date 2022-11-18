@@ -30,7 +30,7 @@ public class Agence {
         LocalDate permisdate;
         String emailClient;
         LocalDate birthdate;
-        
+
         System.out.println("voulez vous ajouter un client ? oui/non");
         Scanner cs1 = new Scanner(System.in);
         boolean information = true;
@@ -48,7 +48,7 @@ public class Agence {
         Scanner cs2 = new Scanner(System.in);
         Scanner cs3 = new Scanner(System.in);
         Scanner cs4 = new Scanner(System.in);
-       
+
         while (true) {
             System.out.println("entrez votre email :");
 
@@ -85,205 +85,82 @@ public class Agence {
                 System.out.println("confirmer vous les informations? oui/non");
                 String choice = cs2.nextLine();
                 if (choice.equals("oui")) {
-                    information=false;
+                    information = false;
                     break;
                 }
                 if (choice.equals("non")) {
                     break;
                 }
             }
-         break;
+            break;
         }
-        
-        Client client = new Client (emailClient, permisdate, birthdate);
-        
+
+        Client client = new Client(emailClient, permisdate, birthdate);
+
         int tab_length_0;
         tab_length_0 = repertoryClient.length;
         Client[] tabtemp = new Client[tab_length_0 + 1]; // creation d'une liste de taille n+1
         for (int i = 0; i < tab_length_0; i++) {
             tabtemp[i] = repertoryClient[i]; // transfert des valeurs vers le nouveau tableau
         }
-        tabtemp[tab_length_0] = client; // ajoue de la nouvelle valeur dans la tab n+1 du tableau 
+        tabtemp[tab_length_0] = client; // ajoue de la nouvelle valeur dans la tab n+1 du tableau
 
-            tab_length_0 = repertoryClient.length;
-            
-        if  (tab_length_0 >2){
-            
-        Client tempclient;
-        for (int i=0; i<tab_length_0; i++){
-             for (int b=i+1; b<tab_length_0; b++){
-                 if (repertoryClient[i].placerApres(repertoryClient[b].emailclient)){
-                     tempclient=repertoryClient[i];
-                     repertoryClient[i]=repertoryClient[b];
-                     repertoryClient[b]=tempclient;
-                 }
-             }
+        tab_length_0 = repertoryClient.length;
+
+        if (tab_length_0 > 2) {
+
+            Client tempclient;
+            for (int i = 0; i < tab_length_0; i++) {
+                for (int b = i + 1; b < tab_length_0; b++) {
+                    if (repertoryClient[i].placerApres(repertoryClient[b].emailclient)) {
+                        tempclient = repertoryClient[i];
+                        repertoryClient[i] = repertoryClient[b];
+                        repertoryClient[b] = tempclient;
+                    }
+                }
+            }
         }
-        }
-        
+
         return tabtemp;
     }
+
     
-
-    public Location[] ajouter(Location[] agandaLocation) {
-
-        System.out.println("voulez vous ajouter une date de location ? oui/non");
-        Scanner cs1 = new Scanner(System.in);
-        boolean information = true;
-        while (information) {
-            String choice = cs1.nextLine();
-            if (choice.equals("oui")) {
-                break;
-            }
-            if (choice.equals("non")) {
-                System.out.println("aucun changement, 'non");
-                return agandaLocation;
-            }
+    public void ajouter(String gamme, String identifiant, int genre, int nbplace, int Nbroue){
+        
+        VehiculeSansMoteur vehicule = new VehiculeSansMoteur( gamme,  identifiant,  genre,  nbplace,  Nbroue);
+        
+        
+        int tab_length_0;
+        tab_length_0 = flotteVehicule.length;
+        VehiculeSansMoteur[] tabtemp = new VehiculeSansMoteur[tab_length_0 + 1]; // creation d'une liste de taille n+1
+        for (int i = 0; i < tab_length_0; i++) {
+            tabtemp[i] = flotteVehicule[i]; // transfert des valeurs vers le nouveau tableau
         }
+        tabtemp[tab_length_0] = vehicule;
 
-        System.out.println("mettez la date de location");
+        flotteVehicule = tabtemp;          
+        
+    }
+    
+    
+    
+    
+    
+    
+    public void ajouter(Client client, Vehicule vehicule, LocalDate dateLocation, float prix, LocalDate dateRestitution) {
 
-        Scanner sc1 = new Scanner(System.in);
-        Scanner sc2 = new Scanner(System.in);
-        Scanner sc3 = new Scanner(System.in);
+        Location location = new Location(client, vehicule, dateLocation, dateRestitution, prix);
 
-        System.out.println("le jour");
-        int jour = sc1.nextInt();
-        System.out.println("le mois");
-        int mois = sc2.nextInt();
-        System.out.println("l'annee");
-        int an = sc3.nextInt();
+        int tab_length_0;
+        tab_length_0 = agandaLocation.length;
+        Location[] tabtemp = new Location[tab_length_0 + 1]; // creation d'une liste de taille n+1
+        for (int i = 0; i < tab_length_0; i++) {
+            tabtemp[i] = agandaLocation[i]; // transfert des valeurs vers le nouveau tableau
+        }
+        tabtemp[tab_length_0] = location;
 
-        LocalDate locationDate = LocalDate.of(jour, mois, an);
-
-        //not finished 
-        return agandaLocation;
+        agandaLocation = tabtemp;   
     }
 
-    public Vehicule[] ajouter(Vehicule[] flotteVehicule) {
-
-        System.out.println("que voulez vous faire?");
-        System.out.println("1/ ajouter vehicule sans moteur");
-        System.out.println("2/ ajouter une vehicule");
-        System.out.println("3/ ajouter un utilitaire");
-        Scanner sc = new Scanner(System.in);
-        int choice = sc.nextInt();
-
-        if (choice == 1) {
-
-            Scanner sc1 = new Scanner(System.in);
-            System.out.println("identifiant");
-            String id = sc1.nextLine();
-
-            Scanner sc2 = new Scanner(System.in);
-            System.out.println("gamme: A, B, C ou D?");
-            String gam = sc2.nextLine();
-
-            Scanner sc3 = new Scanner(System.in);
-            System.out.println("1 - VTT");
-            System.out.println("2 - Tandem");
-            System.out.println("3 - Tricycle");
-            System.out.println("4 - Berline");
-            System.out.println("5 - Monospace");
-            System.out.println("6 - Cabriolet");
-            System.out.println("7 - Camionnette");
-            System.out.println("8 - Fourgonnette");
-            System.out.println("9 - Pickup");
-            int gen = sc3.nextInt();
-
-            Scanner sc4 = new Scanner(System.in);
-            System.out.println("nombre de places");
-            int nbPl = sc4.nextInt();
-
-            Scanner sc5 = new Scanner(System.in);
-            System.out.println("nombre de roues");
-            int nbR = sc5.nextInt();
-
-        }
-        if (choice == 2) {
-            Scanner sc1 = new Scanner(System.in);
-            System.out.println("identifiant");
-            String id = sc1.nextLine();
-
-            Scanner sc2 = new Scanner(System.in);
-            System.out.println("gamme: A, B, C ou D?");
-            String gam = sc2.nextLine();
-
-            Scanner sc3 = new Scanner(System.in);
-            System.out.println("1 - VTT");
-            System.out.println("2 - Tandem");
-            System.out.println("3 - Tricycle");
-            System.out.println("4 - Berline");
-            System.out.println("5 - Monospace");
-            System.out.println("6 - Cabriolet");
-            System.out.println("7 - Camionnette");
-            System.out.println("8 - Fourgonnette");
-            System.out.println("9 - Pickup");
-            int gen = sc3.nextInt();
-
-            Scanner sc4 = new Scanner(System.in);
-            System.out.println("nombre de places");
-            int nbPl = sc4.nextInt();
-
-            Scanner sc5 = new Scanner(System.in);
-            System.out.println("nombre de portes");
-            int nbPort = sc5.nextInt();
-
-            Scanner sc6 = new Scanner(System.in);
-            System.out.println("modele");
-            String mod = sc6.nextLine();
-
-            Scanner sc7 = new Scanner(System.in);
-            System.out.println("voulez vous ajouter plus d'informations? oui/non");
-            String answer = sc7.nextLine();
-
-            if (answer == "oui") {
-                Scanner sc8 = new Scanner(System.in);
-                System.out.println("age minimum");
-                int agemin = sc8.nextInt();
-
-                Scanner sc9 = new Scanner(System.in);
-                System.out.println("nombre d'annees de permis requis");
-                int nbAn = sc9.nextInt();
-            }
-
-        }
-        
-        if (choice == 3) {
-            Scanner sc1 = new Scanner(System.in);
-            System.out.println("identifiant");
-            String id = sc1.nextLine();
-
-            Scanner sc2 = new Scanner(System.in);
-            System.out.println("gamme: A, B, C ou D?");
-            String gam = sc2.nextLine();
-
-            Scanner sc3 = new Scanner(System.in);
-            System.out.println("1 - VTT");
-            System.out.println("2 - Tandem");
-            System.out.println("3 - Tricycle");
-            System.out.println("4 - Berline");
-            System.out.println("5 - Monospace");
-            System.out.println("6 - Cabriolet");
-            System.out.println("7 - Camionnette");
-            System.out.println("8 - Fourgonnette");
-            System.out.println("9 - Pickup");
-            int gen = sc3.nextInt();
-
-            Scanner sc4 = new Scanner(System.in);
-            System.out.println("nombre de places");
-            int nbPl = sc4.nextInt();         
-            
-            Scanner sc5 = new Scanner(System.in);
-            System.out.println("modele");
-            String mod = sc5.nextLine();            
-            
-            Scanner sc6 = new Scanner(System.in);
-            System.out.println("nombre de portes");
-            int nbPort = sc6.nextInt();
-        }
-
-    // a finir 
-    return flotteVehicule;
-}
+  
 }
