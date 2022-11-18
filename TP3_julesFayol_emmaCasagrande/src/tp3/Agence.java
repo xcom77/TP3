@@ -26,7 +26,7 @@ public class Agence {
 
     }
 
-    public void ajouter() {
+    public void ajouter(String emailClient, LocalDate permisdate, LocalDate birthdate) {
         
 
         Client client = new Client(emailClient, permisdate, birthdate);
@@ -68,165 +68,15 @@ public class Agence {
 
     
 
-    public Location[] ajouter(Location[] agandaLocation) {
+    public void ajouter(Location[] agandaLocation) {
 
-        System.out.println("voulez vous ajouter une date de location ? oui/non");
-        Scanner cs1 = new Scanner(System.in);
-        boolean information = true;
-        while (information) {
-            String choice = cs1.nextLine();
-            if (choice.equals("oui")) {
-                break;
-            }
-            if (choice.equals("non")) {
-                System.out.println("aucun changement, 'non");
-                return agandaLocation;
-            }
-        }
-
-        System.out.println("mettez la date de location");
-
-        Scanner sc1 = new Scanner(System.in);
-        Scanner sc2 = new Scanner(System.in);
-        Scanner sc3 = new Scanner(System.in);
-
-        System.out.println("le jour");
-        int jour = sc1.nextInt();
-        System.out.println("le mois");
-        int mois = sc2.nextInt();
-        System.out.println("l'annee");
-        int an = sc3.nextInt();
-
-        LocalDate locationDate = LocalDate.of(jour, mois, an);
-
-        //not finished 
-        return agandaLocation;
+     
     }
 
-    public Vehicule[] ajouter(Vehicule[] flotteVehicule) {
+    public void ajouter(Vehicule[] flotteVehicule) {
 
-        System.out.println("que voulez vous faire?");
-        System.out.println("1/ ajouter vehicule sans moteur");
-        System.out.println("2/ ajouter une vehicule");
-        System.out.println("3/ ajouter un utilitaire");
-        Scanner sc = new Scanner(System.in);
-        int choice = sc.nextInt();
-
-        if (choice == 1) {
-
-            Scanner sc1 = new Scanner(System.in);
-            System.out.println("identifiant");
-            String id = sc1.nextLine();
-
-            Scanner sc2 = new Scanner(System.in);
-            System.out.println("gamme: A, B, C ou D?");
-            String gam = sc2.nextLine();
-
-            Scanner sc3 = new Scanner(System.in);
-            System.out.println("1 - VTT");
-            System.out.println("2 - Tandem");
-            System.out.println("3 - Tricycle");
-            System.out.println("4 - Berline");
-            System.out.println("5 - Monospace");
-            System.out.println("6 - Cabriolet");
-            System.out.println("7 - Camionnette");
-            System.out.println("8 - Fourgonnette");
-            System.out.println("9 - Pickup");
-            int gen = sc3.nextInt();
-
-            Scanner sc4 = new Scanner(System.in);
-            System.out.println("nombre de places");
-            int nbPl = sc4.nextInt();
-
-            Scanner sc5 = new Scanner(System.in);
-            System.out.println("nombre de roues");
-            int nbR = sc5.nextInt();
-
-        }
-        if (choice == 2) {
-            Scanner sc1 = new Scanner(System.in);
-            System.out.println("identifiant");
-            String id = sc1.nextLine();
-
-            Scanner sc2 = new Scanner(System.in);
-            System.out.println("gamme: A, B, C ou D?");
-            String gam = sc2.nextLine();
-
-            Scanner sc3 = new Scanner(System.in);
-            System.out.println("1 - VTT");
-            System.out.println("2 - Tandem");
-            System.out.println("3 - Tricycle");
-            System.out.println("4 - Berline");
-            System.out.println("5 - Monospace");
-            System.out.println("6 - Cabriolet");
-            System.out.println("7 - Camionnette");
-            System.out.println("8 - Fourgonnette");
-            System.out.println("9 - Pickup");
-            int gen = sc3.nextInt();
-
-            Scanner sc4 = new Scanner(System.in);
-            System.out.println("nombre de places");
-            int nbPl = sc4.nextInt();
-
-            Scanner sc5 = new Scanner(System.in);
-            System.out.println("nombre de portes");
-            int nbPort = sc5.nextInt();
-
-            Scanner sc6 = new Scanner(System.in);
-            System.out.println("modele");
-            String mod = sc6.nextLine();
-
-            Scanner sc7 = new Scanner(System.in);
-            System.out.println("voulez vous ajouter plus d'informations? oui/non");
-            String answer = sc7.nextLine();
-
-            if (answer == "oui") {
-                Scanner sc8 = new Scanner(System.in);
-                System.out.println("age minimum");
-                int agemin = sc8.nextInt();
-
-                Scanner sc9 = new Scanner(System.in);
-                System.out.println("nombre d'annees de permis requis");
-                int nbAn = sc9.nextInt();
-            }
-
-        }
         
-        if (choice == 3) {
-            Scanner sc1 = new Scanner(System.in);
-            System.out.println("identifiant");
-            String id = sc1.nextLine();
-
-            Scanner sc2 = new Scanner(System.in);
-            System.out.println("gamme: A, B, C ou D?");
-            String gam = sc2.nextLine();
-
-            Scanner sc3 = new Scanner(System.in);
-            System.out.println("1 - VTT");
-            System.out.println("2 - Tandem");
-            System.out.println("3 - Tricycle");
-            System.out.println("4 - Berline");
-            System.out.println("5 - Monospace");
-            System.out.println("6 - Cabriolet");
-            System.out.println("7 - Camionnette");
-            System.out.println("8 - Fourgonnette");
-            System.out.println("9 - Pickup");
-            int gen = sc3.nextInt();
-
-            Scanner sc4 = new Scanner(System.in);
-            System.out.println("nombre de places");
-            int nbPl = sc4.nextInt();         
-            
-            Scanner sc5 = new Scanner(System.in);
-            System.out.println("modele");
-            String mod = sc5.nextLine();            
-            
-            Scanner sc6 = new Scanner(System.in);
-            System.out.println("nombre de portes");
-            int nbPort = sc6.nextInt();
-        }
 
     // a finir 
-    return flotteVehicule;
 }
 }
