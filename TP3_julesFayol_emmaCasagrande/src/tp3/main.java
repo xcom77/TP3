@@ -9,6 +9,7 @@ package tp3;
  * @author jules
  */
 import java.io.*;
+import java.time.LocalDate;
 
 public class main {
 
@@ -17,14 +18,26 @@ public class main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        String mail = "juju";
+        String mail2 = "alex";
+        LocalDate age = LocalDate.of(2003, 07, 07);
+        Client client = new Client (mail, age,age);
+        Client client2 = new Client (mail2, age,age);
+        
         String nomAgance = "lest";
         Vehicule[] flotteVehicule = new Vehicule[0];
-        Client[] repertoryClient = new Client[0];
+        Client[] repertoryClient = new Client[]{client2,client,client};
         Location[] agandaLocation = new Location[0];
         Agence test = new Agence(nomAgance, flotteVehicule,repertoryClient,agandaLocation);
-        repertoryClient = test.ajouter(repertoryClient);
-        System.out.print(repertoryClient[0].emailclient);
+        
+        test.ajouter();
+        
+        for (int i = 0; i < repertoryClient.length; i++){
+            System.out.println(test);
+        }
        
+        
         
     }
     

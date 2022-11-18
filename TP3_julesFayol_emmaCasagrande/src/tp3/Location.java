@@ -15,9 +15,9 @@ public class Location {
     Vehicule vehicule;
     LocalDate locationdate;
     LocalDate returndate;
-    int price;
+    float price;
     
-    public Location(Client client, Vehicule vehicule, LocalDate locationdate, LocalDate returndate, int price){
+    public Location(Client client, Vehicule vehicule, LocalDate locationdate, LocalDate returndate, float price){
         this.price=price;
         this.vehicule=vehicule;
         this.locationdate=locationdate;
