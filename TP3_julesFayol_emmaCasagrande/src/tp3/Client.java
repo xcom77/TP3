@@ -27,9 +27,9 @@ public class Client {
         String client = this.emailclient;
         int compare = email.compareToIgnoreCase(client);
         if(compare > 0){
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
 }
